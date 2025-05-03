@@ -1,0 +1,60 @@
+---
+import Bench from "../components/icons/bench.astro"
+import CoconutTree from "./icons/coconut-tree.astro"
+import Polaroid from "./icons/polaroid.astro"
+import SnowMountain from "./icons/snow-mountain.astro"
+import Surf from "./icons/surf.astro"
+import TheTrees from "./icons/the-trees.astro"
+
+
+const cats = [
+    {
+        title: 'View',
+        icon: Polaroid,
+        active: true
+    },
+    {
+        title: 'Nature',
+        icon: TheTrees,
+    },
+    {
+        title: 'Beach',
+        icon: CoconutTree,
+    },
+    {
+        title: 'Mountains',
+        icon: SnowMountain,
+    },
+    {
+        title: 'Sea',
+        icon: Surf,
+    },
+    {
+        title: 'City',
+        icon: Bench,
+    },
+]
+
+---
+
+<section class="py-4 pb-2 overflow-hidden">
+    <nav class="px-4 pb-2 flex gap-3 overflow-x-auto scrollbar-hidden">
+        {cats.map(({title, icon: Icon, active}) => (
+            <button class="aspect-square p-2 rounded-md inset-ring-2 ring-current  bg-stone-100 cursor-pointer hover:bg-lime-200 transition-all data-[active=true]:drop-shadow-[.25rem_.25rem_currentColor] data-[active=true]:bg-lime-200 h-20" data-active={active}>
+             <Icon class="size-10 saturate-0 mix-blend-multiply mx-auto" />
+            <span class="text-sm mb-2">{title}</span>
+        </button>
+        ))}
+    </nav>
+</section>
+
+<script>
+    const categories = document.querySelectorAll('section>nav>button');
+
+    categories.forEach(e => {
+        e.addEventListener('click', () => {
+            categories.forEach(e => e.setAttribute('data-active', 'false'));
+            e.setAttribute('data-active', 'true')
+        })
+    })
+</script>

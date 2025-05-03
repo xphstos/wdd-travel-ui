@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: "Geologica", sans-serif;
+}
+
+@utility scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+    display: none;
+    }
+}
+
+html,
+body {
+    @apply h-full;
+}
+
+body {
+    @apply flex justify-center items-center -bg-linear-45 from-yellow-100 to-slate-100 text-slate-900;
+}
+
+::selection {
+    @apply bg-lime-200;
+}

@@ -1,11 +1,99 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Mobile from '../components/Mobile.astro';
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Notifications from '../components/Notifications.astro';
+import Search from '../components/Search.astro';
+import Article from "../components/Article.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Greece from "../assets/greece.jpg"
+import Greece2 from "../assets/greece2.jpg"
+import Armenia from "../assets/armenia.jpg"
+import Mountains from "../assets/mountains.jpg"
+import NewYork from "../assets/new-york.jpg"
+import Norway from "../assets/norway.jpg"
+import Serengeti from "../assets/serengeti.jpg"
+
+import Author1 from "../assets/author1.jpg"
+import Author2 from "../assets/author2.jpg"
+import Categories from '../components/Categories.astro';
+
+const articles = [
+  {
+    title: "Sunset Hike in the Andes",
+    image: Armenia,
+    author: {
+      name: "Lena",
+      image: Author1
+    }
+  },
+  {
+    title: "Cycling Through Tuscany",
+    image: Greece2,
+    author: {
+      name: "Mateo",
+      image: Author2
+    }
+  },
+  {
+    title: "Midnight Kayaking in Norway",
+    image: Greece,
+    author: {
+      name: "Sofia",
+      image: Author1
+    }
+  },
+  {
+    title: "Desert Safari Adventure",
+    image: Serengeti,
+    author: {
+      name: "Ayaan",
+      image: Author2
+    }
+  },
+  {
+    title: "Temple Tour in Kyoto",
+    image: NewYork,
+    author: {
+      name: "Emi",
+      image: Author1
+    }
+  },
+  {
+    title: "Northern Lights Escape",
+    image: Norway,
+    author: {
+      name: "Leo",
+      image: Author2
+    }
+  },
+  {
+    title: "Rainforest Expedition in Borneo",
+    image: Mountains,
+    author: {
+      name: "Mira",
+      image: Author1
+    }
+  }
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Travel App UI">
+	<Mobile>
+		<header class="flex items-center gap-2 justify-between p-4">
+			<p class="text-3xl font-bold flex-1">Hi WebDev!</p>
+			<Notifications client:load />
+		</header>
+		<Search />
+    <Categories client:load />
+		<section class="py-6 px-4 overflow-y-auto scrollbar-hidden">
+			<h1 class="text-xl font-bold mb-4">Popping now by view</h1>
+			<div class="columns-[120px] gap-4 *:mb-4 overflow-y-auto overflow-x-hidden">
+				{articles.map(article => (
+					<Article title={article.title} author={article.author} articleImage={article.image}  />
+				))}
+			</div>
+		</section>
+		<Nav />
+	</Mobile>
 </Layout>

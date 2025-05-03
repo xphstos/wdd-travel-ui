@@ -1,0 +1,39 @@
+---
+import Bell from "../components/icons/bell.astro"
+---
+
+<button onclick="toggleNotifications()" class="[anchor-name:--notifications] cursor-pointer aspect-square p-2 rounded-xl hover:bg-lime-200">
+    <Bell class="size-8" />
+</button>
+<dialog id="notifications" closedby="any" class="absolute [position-anchor:--notifications] top-[anchor(bottom)] right-[calc(anchor(right)+.25rem)] left-auto bottom-auto px-2 py-4 aspect-[9/10] h-[max(30vh,5rem)] rounded-xl inset-ring-2 ring-current bg-stone-100 content-center drop-shadow-[.25rem_.25rem_currentColor] z-10">
+    <p class="text-sm text-center">No notifications</p>
+</dialog>
+
+<style>
+    dialog {
+        transition: opacity 200ms ease, translate 200ms ease;
+        transition-behavior: allow-discrete;
+        translate: 0 .5rem;
+        opacity: 1;
+    }
+
+    @starting-style {
+        dialog {
+            opacity: 0;
+            translate: 0 1rem;
+        }
+    }
+</style>
+
+<script is:inline>
+    function toggleNotifications() {
+        const dialog = document.getElementById('notifications')
+        if (!dialog) return
+        console.log(dialog.open)
+        if (dialog.open) {
+            dialog.close();
+        } else {
+            dialog.show();
+        }
+    } 
+</script>

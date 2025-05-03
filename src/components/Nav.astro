@@ -1,0 +1,36 @@
+---
+import { twMerge } from 'tailwind-merge'
+
+
+import Home from "./icons/house-line.astro";
+import Search from "./icons/search-alt.astro";
+import Expand from "./icons/expand.astro";
+import Chat from "./icons/message-circle-dots.astro";
+import Profile from "./icons/user-alt-1.astro";
+
+const button = "w-full p-2 grid place-content-center gap-1 cursor-pointer hover:bg-lime-200 text-sm rounded-xl aspect-square transition-all select-none";
+const buttonCenter = twMerge(button, 'rounded-full inset-ring-3 ring-current bg-lime-200');
+const icon = "size-8 justify-self-center";
+---
+
+<nav class="flex items-center justify-center gap-2 p-3 border-t-3 border-current bg-stone-100 z-10">
+    <button class={button}>
+        <Home class={icon} />
+        <span>Home</span>
+    </button>
+    <button class={button}>
+        <Search class={icon} />
+        <span>Explore</span>
+    </button>
+    <button class={buttonCenter}>
+        <Expand class={icon} />
+    </button>
+    <button class={button}>
+        <Chat class={icon} />
+        <span>Chat</span>
+    </button>
+    <button class={button}>
+        <Profile class={icon} />
+        <span>Profile</span>
+    </button>
+</nav>

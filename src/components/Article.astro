@@ -1,0 +1,28 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+import Arrow from "../components/icons/arrow-sm-right.astro"
+
+interface Props {
+    title: string;
+    articleImage: ImageMetadata;
+    author: {
+        name: string;
+        image: ImageMetadata;
+    }
+}
+
+const { title, articleImage, author } = Astro.props;
+
+---
+
+<article class="break-inside-avoid-column cursor-pointer group">
+    <Image class="rounded-md border-2" src={articleImage} alt={title} decoding="async" loading="lazy" />
+    <h2 class="font-bold leading-tight my-2 text-sm">{ title }</h2>
+    <address class="flex items-center gap-2 justify-between py-2">
+        <Image class="size-8 rounded-full" src={author.image} alt={author.name} decoding="async" loading="lazy" />
+        <span class="flex-1 not-italic text-sm">{author.name}</span>
+        <Arrow class="size-8 transition group-hover:translate-x-1 inline-block" />
+    </address>
+</article>
