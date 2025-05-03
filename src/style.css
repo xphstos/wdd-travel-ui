@@ -19,7 +19,7 @@ body {
 }
 
 body {
-    @apply flex justify-center items-center -bg-linear-45 from-yellow-100 to-slate-100 text-slate-900;
+    @apply flex justify-center items-center -bg-linear-45 from-yellow-100 to-slate-100 text-slate-900 overscroll-x-none;
 }
 
 ::selection {

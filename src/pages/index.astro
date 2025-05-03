@@ -2,10 +2,9 @@
 import Mobile from '../components/Mobile.astro';
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
-import Notifications from '../components/Notifications.astro';
 import Search from '../components/Search.astro';
 import Article from "../components/Article.astro";
-
+import Notifications from "../components/Notifications.astro";
 import Greece from "../assets/greece.jpg"
 import Greece2 from "../assets/greece2.jpg"
 import Armenia from "../assets/armenia.jpg"
@@ -82,10 +81,10 @@ const articles = [
 	<Mobile>
 		<header class="flex items-center gap-2 justify-between p-4">
 			<p class="text-3xl font-bold flex-1">Hi WebDev!</p>
-			<Notifications client:load />
+				<Notifications />
 		</header>
 		<Search />
-    <Categories client:load />
+		<Categories />
 		<section class="py-6 px-4 overflow-y-auto scrollbar-hidden">
 			<h1 class="text-xl font-bold mb-4">Popping now by view</h1>
 			<div class="columns-[120px] gap-4 *:mb-4 overflow-y-auto overflow-x-hidden">

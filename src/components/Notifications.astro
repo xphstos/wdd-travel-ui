@@ -29,11 +29,7 @@ import Bell from "../components/icons/bell.astro"
     function toggleNotifications() {
         const dialog = document.getElementById('notifications')
         if (!dialog) return
-        console.log(dialog.open)
-        if (dialog.open) {
-            dialog.close();
-        } else {
-            dialog.show();
-        }
+
+        dialog.show();
     } 
-</script>
+</script> 
